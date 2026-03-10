@@ -869,3 +869,48 @@ a:focus-visible, button:focus-visible {
     opacity: 0.8;
     text-decoration: underline;
 }
+
+/* --- Floating Leaves Effect --- */
+.leaf {
+    position: fixed;
+    top: -50px;
+    pointer-events: none; /* Prevents leaves from blocking clicks */
+    z-index: 1; /* Keeps them behind the main content but visible */
+    color: var(--accent);
+    opacity: 0.2;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.4;
+    }
+    90% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translate(calc(100px - 50vw), 100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* --- Profile Image Interactive Setup --- */
+.hero-image-wrapper {
+    perspective: 1000px; /* Required for the 3D tilt effect */
+}
+
+.profile-img {
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* Smooth return when mouse leaves */
+.profile-img.resetting {
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    transform: rotateX(0) rotateY(0) scale(1);
+}
