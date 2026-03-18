@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 3. Typewriter Effect
     const typewriterElement = document.getElementById("typewriter");
-    const text = "Biotechnology Researcher & PhD Candidate";
+    const text = "Biotechnology Researcher & Prospective PhD Student";
     let textIndex = 0;
 
     // Clear the HTML text first so JS can type it out
